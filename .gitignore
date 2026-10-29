@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+env/
+
+# 离线依赖轮子 / 构建产物
+.wheels/
+dist/
+build/
+*.spec
+*.egg-info/
+
+# 运行时数据（配置 / 日志 / 备份 / 报告）
+data/
+*.log
+preview_out/
+smoke.png
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
