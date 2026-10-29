@@ -4,6 +4,14 @@
 >
 > 界面：PySide6 自绘深色主题 · 概览 / 游戏库 / 修复中心 / 事件日志 / 设置
 
+> **你遇到的是这个窗口吗？** 点了启动，游戏窗口怎么都出不来，只弹一个「Could Not Activate / 无法激活」——**这就是本工具要解决的问题。**
+
+![EA App 的 Could Not Activate 弹窗](docs/preview/00-problem.png)
+
+*图：EA App / Origin 的「Could Not Activate」弹窗（用户提供的截图，界面与商标版权归 EA 所有，仅用于说明问题）。*
+
+修好之后是长这样 —— 工具会自动检测、定位游戏、修复启动链并确认游戏窗口真的起来了：
+
 ![概览](docs/preview/01-overview.png)
 
 **English** · An unofficial Windows utility that detects EA App / Origin "Could Not Activate" dialogs, identifies the affected game, repairs the launch chain (URL protocol registration, stale license caches, correct Steam/EA launch path, EA client restart) and verifies that the game window actually appears. Every destructive step is backup-and-move, and it never bypasses licensing. Built with PySide6; 37 automated tests.
@@ -12,14 +20,12 @@
 
 ## 它解决什么问题
 
-EA 游戏（尤其是 Steam 版）启动时，经常不是进游戏，而是弹出这样一窗：
+EA 游戏（尤其是 Steam 版）启动时，经常不是进游戏，而是出现下面的情况：
 
-```
-Battlefield 3™
-Could Not Activate
-We could not activate Battlefield 3 on this computer using the Origin
-Account you provided. Please locate your product key ...
-```
+- 点击「开始游戏」后，**游戏窗口始终不出现**；
+- 只弹出上面那张「Could Not Activate / 无法激活」窗口；
+- 弹窗里只有 *Enter Product Key*、*Sign in as a different user*、*Buy this game* 这些出口；
+- 有时 `bf3.exe` / `EACoreServer.exe` 进程起来了，一两分钟后自己退出，还是进不了游戏。
 
 这就是 EA Core 拉起了游戏目录里的 `Core\activation.exe` 激活界面。常见原因有四类：
 
@@ -266,6 +272,7 @@ ea-game-doctor/
 - 代码以 **MIT License** 开源（见 [LICENSE](LICENSE)）。
 - 本项目为社区非官方工具，与 Electronic Arts、DICE 及任何游戏发行商无关联；`Battlefield`、`EA`、`Origin` 等名称与商标归其各自所有者。
 - 仓库不包含任何游戏素材、Logo、破解补丁或授权文件；界面中的游戏封面为程序生成的纯色渐变 + 首字母。
+- 唯一的例外是 `docs/preview/00-problem.png`：一张用于说明问题现象的 EA 客户端错误弹窗截图（用户提供），其界面、Logo 与商标版权归 Electronic Arts 所有，仅作问题说明用途。
 - 工具不会绕过游戏授权、不伪造产品密钥、不修改授权校验；仅供在自己拥有合法授权的游戏与电脑上做启动排障。
 
 如果这个项目对你有帮助，欢迎 Star、提 Issue 或 PR；问题排查请附上「修复中心 → 打开报告」导出的 JSON（工具会自动去掉系统路径以外的无关信息）。
